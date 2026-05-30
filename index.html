@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BEN10 RADIO</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+
+height:100vh;
+
+background:
+linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.95)),
+url('https://wallpapercave.com/wp/wp16354549.webp');
+
+background-size:cover;
+background-position:center;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+overflow:hidden;
+
+color:white;
+
+}
+
+.container{
+
+width:95%;
+height:92vh;
+
+background:rgba(0,0,0,0.45);
+
+border-radius:35px;
+
+backdrop-filter:blur(15px);
+
+border:1px solid rgba(0,255,136,0.15);
+
+display:flex;
+
+padding:20px;
+
+gap:20px;
+
+box-shadow:0 0 40px rgba(0,255,136,0.15);
+
+}
+
+.sidebar{
+
+width:250px;
+
+background:rgba(0,0,0,0.6);
+
+border-radius:25px;
+
+padding:25px;
+
+border:1px solid rgba(255,255,255,0.05);
+
+}
+
+.logo{
+
+font-size:35px;
+font-weight:bold;
+
+color:#00ff88;
+
+margin-bottom:40px;
+
+text-shadow:0 0 15px #00ff88;
+
+}
+
+.menu{
+
+display:flex;
+flex-direction:column;
+gap:18px;
+
+}
+
+.menu button{
+
+background:rgba(255,255,255,0.05);
+
+border:none;
+
+padding:18px;
+
+border-radius:18px;
+
+color:white;
+
+font-size:16px;
+
+cursor:pointer;
+
+transition:0.3s;
+
+}
+
+.menu button:hover{
+
+background:#00ff88;
+
+color:black;
+
+transform:translateX(5px);
+
+}
+
+.main{
+
+flex:1;
+
+position:relative;
+
+display:flex;
+align-items:flex-end;
+
+padding:30px;
+
+overflow:hidden;
+
+border-radius:30px;
+
+}
+
+.hero{
+
+position:absolute;
+inset:0;
+
+background:
+linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.9)),
+url('https://wallpapercave.com/wp/wp16354549.webp');
+
+background-size:cover;
+background-position:center;
+
+z-index:-1;
+
+}
+
+.title{
+
+position:absolute;
+
+top:40px;
+right:50px;
+
+font-size:90px;
+
+font-weight:bold;
+
+color:rgba(0,255,136,0.7);
+
+text-shadow:0 0 25px #00ff88;
+
+}
+
+.player{
+
+width:100%;
+
+background:rgba(0,0,0,0.55);
+
+border-radius:30px;
+
+padding:30px;
+
+backdrop-filter:blur(10px);
+
+border:1px solid rgba(255,255,255,0.08);
+
+}
+
+.top{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+gap:20px;
+
+flex-wrap:wrap;
+
+}
+
+.cover{
+
+width:180px;
+height:180px;
+
+border-radius:25px;
+
+object-fit:cover;
+
+box-shadow:0 0 35px rgba(0,255,136,0.3);
+
+}
+
+.info h1{
+
+font-size:42px;
+
+margin-bottom:10px;
+
+}
+
+.info p{
+
+color:#aaa;
+
+font-size:18px;
+
+}
+
+.live{
+
+display:inline-block;
+
+background:#00ff88;
+
+color:black;
+
+padding:10px 18px;
+
+border-radius:12px;
+
+margin-bottom:15px;
+
+font-weight:bold;
+
+}
+
+.play-btn{
+
+width:120px;
+height:120px;
+
+border-radius:50%;
+
+border:none;
+
+background:#00ff88;
+
+color:black;
+
+font-size:45px;
+
+cursor:pointer;
+
+transition:0.3s;
+
+box-shadow:0 0 35px rgba(0,255,136,0.4);
+
+}
+
+.play-btn:hover{
+
+transform:scale(1.08);
+
+}
+
+audio{
+
+width:100%;
+
+margin-top:25px;
+
+filter:hue-rotate(80deg);
+
+}
+
+.social{
+
+display:flex;
+
+justify-content:flex-end;
+
+gap:15px;
+
+margin-top:20px;
+
+}
+
+.social div{
+
+width:55px;
+height:55px;
+
+border-radius:50%;
+
+background:rgba(255,255,255,0.08);
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+font-size:22px;
+
+cursor:pointer;
+
+transition:0.3s;
+
+}
+
+.social div:hover{
+
+background:#00ff88;
+
+color:black;
+
+transform:translateY(-5px);
+
+}
+
+@media(max-width:900px){
+
+.container{
+
+flex-direction:column;
+
+height:auto;
+
+}
+
+.sidebar{
+
+width:100%;
+
+}
+
+.title{
+
+font-size:45px;
+
+right:20px;
+
+}
+
+.top{
+
+flex-direction:column;
+
+text-align:center;
+
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="sidebar">
+
+<div class="logo">BEN10 RADIO</div>
+
+<div class="menu">
+
+<button>🟢 LIVE RADIO</button>
+<button>🎵 PLAYLIST</button>
+<button>🕓 SCHEDULE</button>
+<button>⭐ FAVORITES</button>
+<button>💬 CHAT</button>
+<button>ℹ ABOUT</button>
+
+</div>
+
+</div>
+
+<div class="main">
+
+<div class="hero"></div>
+
+<div class="title">BEN10</div>
+
+<div class="player">
+
+<div class="top">
+
+<img class="cover" src="https://wallpapercave.com/wp/wp16354549.webp">
+
+<div class="info">
+
+<div class="live">● LIVE</div>
+
+<h1>BEN10 RADIO</h1>
+
+<p id="songName">Loading...</p>
+
+</div>
+
+<button class="play-btn" onclick="togglePlay()">▶</button>
+
+</div>
+
+<audio id="audio" controls></audio>
+
+<div class="social">
+
+<div>📷</div>
+<div>✈</div>
+<div>🎧</div>
+<div>🌐</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+const songs = [
+
+"songs/Ahange Shahlay Man [SevilMusic] - Copy.mp3",
+"songs/Ahange Shahlay Man [SevilMusic].mp3",
+"songs/Dariush - Baradar Jaan.mp3",
+"songs/Dariush - Bonbast.mp3",
+"songs/Dariush - Faryad Zire Aab.mp3",
+"songs/Habib - Nafas [320].mp3",
+"songs/Habib - Maro Baash [320].mp3"
+
+];
+
+let currentSong = 0;
+
+const audio = document.getElementById("audio");
+const songName = document.getElementById("songName");
+const playBtn = document.querySelector(".play-btn");
+
+function loadSong(index){
+
+audio.src = songs[index];
+
+songName.innerText = songs[index]
+.split("/")
+.pop();
+
+}
+
+function togglePlay(){
+
+if(audio.paused){
+
+audio.play();
+playBtn.innerHTML = "⏸";
+
+}else{
+
+audio.pause();
+playBtn.innerHTML = "▶";
+
+}
+
+}
+
+function nextSong(){
+
+currentSong++;
+
+if(currentSong >= songs.length){
+
+currentSong = 0;
+
+}
+
+loadSong(currentSong);
+
+audio.play();
+
+}
+
+audio.addEventListener("ended", nextSong);
+
+loadSong(currentSong);
+
+</script>
+
+</body>
+</html>
