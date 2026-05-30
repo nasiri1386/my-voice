@@ -511,7 +511,7 @@ const songs = [
 
 ];
 
-let currentSong = 0;
+let currentSong = Math.floor(Math.random() * songs.length);
 
 const audio = document.getElementById("audio");
 const songName = document.getElementById("songName");
